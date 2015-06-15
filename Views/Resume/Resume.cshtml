@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Resume";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.4-dist/js/npm.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+<html>
+<body >
+    @section featured{
+        <div class="col-sm-9" style="margin-left:180px; margin-right:220px ;margin-top:35px; border:hidden ; background-color:azure">
+
+            <div id="ResumeCoverLetter">
+                <div class="rcHeaderBoard" style="border:thick">
+
+                    
+                    <h2 class="rcTitle" style=" margin-left:12px ; font:bold">Create a Resume on Monster</h2>
+
+                    <div class="rcHBLeftContent col-sm-5">
+                     
+                        Post a resume on Monster today and make it searchable to employers. It’s easy! You can upload your resume or start a new one by building a resume with Monster’s Resume Builder.</p>
+                      <br>
+                        @if (Session["Name"] == null)
+                            {
+                           
+                         <a class="globalButton gbOrangeButton" href="@Url.Content("~/Accounts/Login")">Upload My Resume</a>
+                     <span class="rcHpad1">   OR   </span> <a class="rcBold" href="@Url.Content("~/Accounts/Login")">Create Resume Here</a>
+                        }
+                        else
+                        {
+                                                      <a class="globalButton gbOrangeButton" href="@Url.Content("~/Resume/Upload")">Upload My Resume</a>
+                     <span class="rcHpad1">   OR   </span> <a class="rcBold" href="@Url.Content("~/Profiles/CreateCV")">Create Resume Here</a>
+                        }
+                             </div>
+
+
+                </div>
+              
+
+            </div>
+            <div class="col-sm-4" style="margin-left:70px ; margin-top:-50px">
+                <h4 style="font-size:medium; font:bolder">Make Your Resume Searchable</h4>
+                <ul>
+                    <li>
+                        Having a searchable resume is the best way for employers to find you.
+                    </li>
+                    <li>
+                        Thousands of employers search for resumes on Monster everyday.
+                        Help them find yours by making your
+                        resume public and updating your resume visibility information.
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <img src="~/Content/themes/base/images/r-headerboard-right-item1-bg.png" />
+            </div>
+
+            <img src="~/Content/themes/base/images/rc-headerboard-bgBottom.png" />
+        </div>
+   
+    <div class="col-sm-9" style="margin-left:180px; margin-right:220px ;margin-top:35px; border:hidden ; background-color:ActiveBorder">
+       <div class="col-sm-4">
+         <img style="margin-top:10px" src="~/Content/themes/base/images/images%20(1).jpg" />
+           </div>
+        <div class="col-sm-7">
+         <h2 class="rcTitle" style=" margin-left:0px">Sample Resumes</h2>
+                 <span style="margin-top:-10px">   Browse Monster's collection of sample resumes:</span>
+            <div style="background-color:lightgray">
+                <a href="#">Retail Clerk Resume</a>
+                <br>
+                <span class="rcLcontentItem">Retail clerks must be personable and exude customer service. 
+                Make sure your resume demonstrates these qualities to an employer with this sample.</span>
+                <br>
+                
+                <a href="#" style="margin-top:15px">Office Manager Resume</a>
+                <br>
+                <span class="rcLcontentItem">
+                    Does your resume fully convey your business, 
+                    technical and managerial skills? Check out this office manager 
+                    sample resume for guidance.
+                    </span>
+                <br>
+                <a href="#" style="margin-top:15px">WareHouse Associate Resume</a>
+                <br>
+                <span class="rcLcontentItem">
+                    Are you looking for a warehousing job? 
+                    Use this sample to stock up on tips for creating your own winning resume.
+                    </span>
+                <br>
+                <a href="#" style="margin-top:15px">Functional Resume Sample</a>
+                <br>
+                <span class="rcLcontentItem">
+                    Wondering what your functional resume should look like?
+                     Here's a free resume example for inspiration.
+
+
+                </span>
+             </div>
+        
+            </div>
+    </div>
+    }
+</body>
+</html>

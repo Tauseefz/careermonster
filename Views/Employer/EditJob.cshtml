@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "EditJob";
+    Layout = "~/Views/Shared/EmployerShared.cshtml";
+}
+@model Template.Models.Job
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.4-dist/js/npm.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+<div class="col-xs-12 col-sm-12 panel panel-success ">
+    <h3 style="margin-left:120px" class="panel-heading panel-title">Job Posted By You</h3>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+            </div>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm("Edit", "Employer", FormMethod.Post, new { Id = "signupform", @class = "form-horizontal" }))
+            {
+                
+                @Html.HiddenFor(m => m.Id)
+                @Html.HiddenFor(m => m.OrganizationId)
+                <div class="form-group">
+                    @Html.LabelFor(m => m.JobName)
+                   
+                        @Html.EditorFor(m => m.JobName, new { @class = "col-md-9"})
+                    </div>
+              
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Description)
+                   
+                        @Html.EditorFor(m => m.Description)
+                   
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Location)
+                 
+                        @Html.EditorFor(m => m.Location)
+                    </div>
+               
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Job_Type)
+                  
+                        @Html.EditorFor(m => m.Job_Type)
+                    </div>
+                
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Qualification)
+                   
+                        @Html.EditorFor(m => m.Qualification)
+                   
+                </div>
+               
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Date_Expired)
+                    
+                        @Html.EditorFor(m => m.Date_Expired)
+                  
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.MaxSalary)
+                   
+                        @Html.EditorFor(m => m.MaxSalary)
+                   
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Vacancy)
+                    
+                        @Html.EditorFor(m => m.Vacancy)
+                    
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Date_Posted)
+                    
+                        @Html.EditorFor(m => m.Date_Posted)
+                    
+                </div>
+                 <div class="form-group">
+                    @Html.LabelFor(m => m.CompanyName)
+                    
+                        @Html.EditorFor(m => m.CompanyName)
+                    
+                </div>
+                 <div class="form-group">
+                    @Html.LabelFor(m => m.MinSalary)
+                    
+                        @Html.EditorFor(m => m.MinSalary)
+                    
+                </div>
+                  <div class="form-group">
+                    @Html.LabelFor(m => m.Experience)
+                    
+                        @Html.EditorFor(m => m.Experience)
+                    
+                </div>
+                 <div class="form-group">
+                    @Html.LabelFor(m => m.Requirements)
+                    
+                        @Html.EditorFor(m => m.Requirements)
+                    
+                </div>
+                 
+                
+                <div class="form-group">
+                                    <!-- Button -->
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <input type="submit" class="btn btn-lg btn-primary pull-right" value="Submit">
+                                    </div>
+                                </div>
+            }
+            </div>
+</section>
+</div>

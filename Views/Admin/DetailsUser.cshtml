@@ -1,0 +1,46 @@
+﻿@model Template.Models.User
+
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EMail)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMail)
+    </div>
+
+    
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EducationLevel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EducationLevel)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CareerLevel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CareerLevel)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

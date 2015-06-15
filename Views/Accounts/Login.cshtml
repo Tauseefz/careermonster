@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.4-dist/js/npm.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+
+<div style="background-image: linear-gradient(~/Content/themes/base/images/bg_purple_7.jpg )">
+    @section featured {
+    <div class="col-sm-10" style="margin-left:180px; margin-right:170px  ">
+        <div style="margin-top:15px">
+            <h2>Sign into Career Monster</h2>
+            <div class="col-sm-5">
+                <div class="cssTextAlignRight cssPaddingTop5">
+                  
+                    <div class="panel panel-danger ">
+                        <h2 class="panel-heading panel-title">Employer SignUp</h2>
+                        <div class="panel-body">
+                        <strong>Want to Hire ? Continue Here  </strong>
+                        <a href="@Url.Content("~/Accounts/OrganizationSignup")">Hire</a>
+               
+                            </div>
+                </div>
+                    </div>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="cssTextAlignRight cssPaddingTop5">
+
+                <div class="panel panel-success ">
+                   
+                        <h2 class="panel-heading panel-title">User Login</h2>
+                   
+                    <div class="panel-body">
+                        <strong>Not Join ?   </strong>
+                        <a href="@Url.Content("~/Accounts/Signup")">SignUp Here</a>
+                        <form method="post" class="form-horizontal" action="/Accounts/SignIn" role="form">
+                            <div class="form-group">
+                                @Html.Label("Email", "EMAIL: ", new { Class = "col-md-3 control-label" })
+
+                                <div class="col-md-9">
+                                    @Html.TextBox("Email", "", new { type = "email", Class = "form-control", name = "Email", placeholder = "Email" })
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Password", "Password: ", new { Class = "col-md-3 control-label" })
+
+                                <div class="col-md-9">
+                                    @Html.TextBox("Password", "", new { type = "password", Class = "form-control", name = "Password", placeholder = "Password" })
+
+                                </div>
+                            </div>
+
+                            <input type="submit" class="btn btn-lg btn-primary" value="Sign In">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+      
+        }
+</div>
+

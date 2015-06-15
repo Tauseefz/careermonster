@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Employer";
+    Layout = "~/Views/Shared/EmployerShared.cshtml";
+}
+
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.4-dist/js/npm.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+<html>
+
+<body style="background-color:antiquewhite">
+  
+    <div class="middle">
+
+
+        <div class="bannerSection">
+            <img src="~/Content/themes/base/images/banner_4people.jpg" />
+            <div class="jobSearchForm" style="margin-right:90px">
+                <h3 class="text-center title">Tell us who are you looking to hire: </h3>
+                <form action="SearchResume" method="post">
+                    <div class="form-group">
+                        <label style="display:none">Job Title</label>
+                        <input type="text" maxlength="100" required class="form-control RightContentInputFieldRed" placeholder="Enter Job Title" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label style="display:none">Job Title</label>
+                        <input type="text" maxlength="100" required class="form-control RightContentInputFieldRed" placeholder="Enter Job Location" autocomplete="off">
+                    </div>
+                    <input type="submit" style="background-color:purple ; color:white; margin-left:220px" value="Continue">
+                </form>
+            </div>
+        </div>
+        <h2>Find Your Next Hire with Career Monster</h2>
+        <p>
+            <style type="text/css">
+                .liststyle {
+                    list-style-type: disc;
+                    color: #000000;
+                    line-height: 0.5em;
+                    margin-bottom: 10px;
+                    margin-left: 15px;
+                }
+            </style>
+        </p>
+        <ul>
+            <li class="liststyle">
+                The global online employment solution for employers who need great people
+            </li>
+            <li class="liststyle">
+                Automatically distribute your jobs across the Monster network including thousands of leading national, local and niche sites
+            </li>
+            <li class="liststyle">
+                Get your job in front of the right targeted audience
+            </li>
+            <li class="liststyle">
+                Post your job on Monster and reach the best quality candidates now!
+            </li>
+        </ul>
+        <div class="jobpost-section col-md-12">
+            <div class="jobpost-content col-lg-6">
+                <img src="~/Content/themes/base/images/posts-img.png" />
+                <div class="sectionB">
+                    <h3>Post Multiple Jobs</h3>
+                    <p>Need to post more than one job? Buy more & save!</p>
+
+                    <input class="btnPurple" style="background-color:purple;color:white" onclick= "@Url.Content("~/Employer/PostJobs")" type="submit" value="Post Jobs" />
+                </div>
+            </div>
+            <div class="jobpost-content col-lg-6">
+
+                <img src="~/Content/themes/base/images/candidates.png" />
+                <div class="sectionB">
+                    <h3>Looking for Candidates?</h3>
+                    <p>Check out our award-winning Search Products to find the perfect active and passive candidates!</p>
+
+                    <input class="btnPurple" style="background-color:purple;color:white" onclick="@Url.Content("~/Employer/SearchResume")" type="submit" value="Search Resume" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

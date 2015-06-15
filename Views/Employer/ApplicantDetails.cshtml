@@ -1,0 +1,57 @@
+﻿@model Template.Models.Applicant
+
+@{
+    ViewBag.Title = "ApplicantDetails";
+}
+
+<h2>ApplicantDetails</h2>
+
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Job)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Job)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Skill)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Skill)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Experience)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Experience)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EducationLevel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EducationLevel)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CareerLevel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CareerLevel)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Reply", "Reply", new { name=Model.Name }) |
+    @Html.ActionLink("Back to List", "SearchCV")
+</p>

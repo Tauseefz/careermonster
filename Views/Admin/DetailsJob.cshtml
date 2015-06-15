@@ -1,0 +1,107 @@
+﻿@model Template.Models.Job
+
+<fieldset>
+    <legend>Job</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CompanyName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date_Posted)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date_Posted)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date_Expired)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date_Expired)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Job_Type)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Job_Type)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrganizationId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrganizationId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Requirements)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Requirements)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Vacancy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Vacancy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Qualification)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Qualification)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MinSalary)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MinSalary)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MaxSalary)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaxSalary)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Experience)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Experience)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

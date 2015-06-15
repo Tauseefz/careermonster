@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "SearchCV";
+    Layout = "~/Views/Shared/EmployerShared.cshtml";
+}
+
+@using Template.Models;
+@model System.Collections.ArrayList
+<script src="~/jQuery/jQuery-2.1.4.min.js"></script>
+<script>
+    function GetUserDetail(caller) {
+        var user = $(caller).val();
+        $.ajax({
+            url: '/Employer/ApplicantDetails',
+            contentType: 'application/html; charset=utf-8',
+            data: { name: user },
+            type: 'GET',
+            dataType: 'html'
+        })
+        .success(function (result) {
+            $("#applicant").html(result);
+        })
+        .error(function (xhr, status) {
+            alert(status);
+        })
+    }
+</script>
+<h1 style="font-size:2.4em;margin-bottom:20px;font-weight:300;text-align:left">
+    Power Resume Search
+
+</h1>
+<div class="container  " style=" margin-right: 30px; background-image: url(http://media.newjobs.com/homepage/images/hero-img/bg_purple_5.jpg)">
+
+    <img src="~/Content/themes/base/images/pvtDBshadow-long2.jpg" />
+    <div class="col-sm-12">
+        <div id="academics" style="margin-left:10px;color:lightcyan" class="box col-sm-6">
+            
+                    <form action="Searched" method="post" class="form-horizontal">
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="fname">Education</label>
+                            <div class="col-md-9 form-inline">
+                                <input class="form-control input-sm xlg" name="education">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="fname">Experience</label>
+                            <div class="col-md-9 form-inline">
+                                <input class="form-control input-sm xlg" name="expe">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="fname">Skills 1</label>
+                            <div class="col-md-9 form-inline">
+                                <input class="form-control input-sm xlg" name="skill">
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="fname">Skills2</label>
+                            <div class="col-md-9 form-inline">
+                                <input class="form-control input-sm xlg" name="skill2">
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="fname">Skills3</label>
+                            <div class="col-md-9 form-inline">
+                                <input class="form-control input-sm xlg" name="skill3">
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="fname">Location</label>
+                            <div class="col-md-9 form-inline">
+                                <input class="form-control input-sm xlg" name="location" required>*
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-offset-3 col-md-9">
+                            <input type="submit" style="text-decoration-color:blanchedalmond" class=" btn btn-app pull-right" value="Search">
+
+                        </div>
+
+                    </form>
+            
+        </div>
+            <div id="academics" class="pull-right col-sm-6 box" style="margin-left:10px">
+                <h3 style="font-size:2.4em;margin-bottom:20px;font-weight:300;text-align:left">
+                    Received resume
+                </h3>
+                    <ul style="margin-left:50px ;background-color:lightblue" class="list-unstyled ">
+                        @foreach (ReceivedResume req in Model)
+                        {
+                            <li>
+                                <div class="text-muted">Candidate Name:</div>
+                                <span>@req.Name</span>
+
+                            </li>
+                            
+                            <li>
+                                <div class="text-muted">Experience</div>
+                                <span> @req.Job </span>
+                            </li>
+                           <li class="pull-right">
+                      
+                        <input type="submit" placeholder="Detail" value="@req.Name" onclick="GetUserDetail($(this))">
+                    </li>
+                                }
+
+                    </ul>
+               
+            </div>
+       
+    </div>
+   
+</div>
+
+   <div class="container" id="applicant" style="margin-left:150px;background-color:aliceblue; text-emphasis-color:white">
+
+
+</div>

@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "CreateCV";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using System.Collections;
+@using Template.Models;
+@model ArrayList
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.4-dist/js/npm.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+<html>
+<body style="background-color:white">
+    @section featured
+    {
+    <div class="container" >
+        <h2>Welcom User Name</h2>
+        <div class="col-sm-6 col-md-2">
+            <div class="panel panel-primary">
+            <div class="thumbnail">
+                
+                <img src="~/Content/themes/base/images/Edit_A-512.png" 
+                        alt="Generic placeholder thumbnail"/>
+            </div>
+            <div  class="caption text-center">
+                 <a href="/Profiles/ResumeBuilder" class="btn btn-primary" role="button">
+                       Edit Resume
+                    </a>
+              </div>  
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2">
+            <div class="panel panel-primary">
+                <div class="thumbnail">
+                    <img src="~/Content/themes/base/images/images.png"
+                         alt="Generic placeholder thumbnail" />
+                </div>
+                <div class="caption text-center">
+                    <a href="/Profiles/ViewResume" class="btn btn-primary" role="button">
+                        View Resume
+                    </a>
+                </div>
+                
+            </div>
+           
+            </div>
+        <div class="col-sm-6 col-md-2">
+            <div class="panel panel-primary">
+                <div class="thumbnail">
+                    <img src="~/Content/themes/base/images/images.png"
+                         alt="Generic placeholder thumbnail" />
+                </div>
+                <div class="caption text-center">
+                    <a href="/Profiles/AddResume" class="btn btn-primary" role="button">
+                        Download Resume
+                    </a>
+                </div>
+
+            </div>
+            </div>
+            <div class="col-sm-6 col-md-2">
+                <div class="panel panel-primary">
+                    <div class="thumbnail">
+                        <img src="~/Content/themes/base/images/download%20(1).png"
+                             alt="Generic placeholder thumbnail">
+                    </div>
+                    <div class="caption text-center">
+
+                        <a href="/Jobs/Jobs" class="btn btn-primary" role="button">
+                            Search Jobs
+                        </a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-2">
+
+                <div class="panel panel-primary">
+                    <div class=" thumbnail">
+
+                        <img src="~/Content/themes/base/images/download.png"
+                             alt="Generic placeholder thumbnail">
+                    </div>
+                    <div class="caption text-center">
+
+                        <a href="SavedJobs" class="btn btn-primary" role="button">
+                            Saved Jobs
+                        </a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div id="jobsList" style="margin-top:300px ; border:inherit">
+                @foreach (Job job in Model)
+                {
+                    <ul class="list-unstyled list-boxed list-bottom list-hover">
+                        <li>
+                            <a href="/Jobs/Jobs" class="text-lg" title="JobName">
+                                @job.JobName
+                                <span class="text-muted text-sm">@job.CompanyName</span>
+                            </a>
+                            <div class="mt10 mb10">
+                                <a style="color:inherit" href="#" title="fulltime">
+                                    <span class="label label-default text-sm">@job.Job_Type</span>
+                                </a>
+
+                            </div>
+                            <div class="mt5 mb10">
+                                @job.Description
+                            </div>
+                            <div class="row text-sm">
+                                <div class="col-md-9 col-sm-9 col-xs-12 text-success">
+                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                    <a style="color:inherit" href="/Jobs/Jobs" title="location">@job.Location</a>
+                                    <a style="color:inherit" href="#">
+                                        Pakistan
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    @job.Date_Posted
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                }
+            </div>
+        </div>
+    }
+    </body>
+
+</html>

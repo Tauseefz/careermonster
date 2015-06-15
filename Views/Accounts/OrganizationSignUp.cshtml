@@ -1,0 +1,193 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@using System.Web.Mvc;
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.4-dist/js/npm.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+<script>
+    //$(document).ready( function ()
+    //{
+    //    $("#buttonclick").click(function ()
+    //    {
+    //        alert("Invalid Arguments")
+    //        if($("#name").length== 0)
+    //            alert("Invalid Arguments")
+      
+    function validate()
+    {
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var pass = $('#pass').val();
+        var post = $('#post').val();
+        var country = $('#country').val();
+        var city = $('#city').val();
+        var industry = $('#industry').val();
+        var phone = $('#phone').val();
+        var website = $('#website').val();
+        var est = $('#establish').val();
+       
+        if (name.length == 0 || website.length || est.length ||country.length || city.length || industry.length || phone.length || email.length || pass.length || post.length)
+            alert("Invalid Arguments");
+     
+
+    }
+</script>
+
+
+<div style="background-color:oldlace">
+    @section featured {
+        <div class="col-sm-10" style="margin-left:180px; margin-right:170px ; border:outset ; ">
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="col-sm-7">
+                <h2 style="font:bolder; color:black">Join Career Monster - It's Free!</h2>
+                <div id="signupbox">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <div class="panel-title">Sign Up of Career Monster With Email</div>
+
+                        </div>
+                        <p style="margin-left:30px">Already have a account <a href="@Url.Content("~/Accounts/Login")">Sign in Here</a></p>
+                        <div class="panel-body">
+                          @using (Html.BeginForm("RegisterOrganization" , "Accounts" , FormMethod.Post ,  new {Id = "signupform", Class = "form-horizontal"} ))
+                          { 
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <p>Error:</p>
+                                    <span></span>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                 @Html.Label("Name" , "Name: " , new {Class = "col-md-3 control-label"})  
+                                    <div class="col-md-9">
+                                      @Html.TextBox( "Name", "" ,  new { id = "name" ,Class = "form-control" , name = "Name" , placeholder = "Name"})  
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("hremail", "HREmail: ", new {Class = "col-md-3 control-label" })
+                                    
+                                    <div class="col-md-9">
+                                        @Html.TextBox("hremail", "", new {id= "email" , type = "email", Class = "form-control", name = "hremail", placeholder = "Email" })
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Password", "Password: ", new { Class = "col-md-3 control-label" })
+                                    
+                                    <div class="col-md-9">
+                                        @Html.TextBox( "Password", "" ,  new {id="pass" ,type = "password" ,Class = "form-control" , name = "Password" , placeholder = "Password"})
+                                        
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("ConfirmPassword", "Confirm Password: ", new { Class = "col-md-3 control-label" })
+                                    
+                                    <div class="col-md-9">
+                                        @Html.TextBox( "ConPassword", "" ,  new {id="pass" ,type = "password" ,Class = "form-control" , name = "ConPassword" , placeholder = "Password"})
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Post", "Designation: ", new { Class = "col-md-3 control-label" })
+                                    
+                                    <div class="col-md-9">
+                                        @Html.TextBox("Post", "", new { id= "post" , Class = "form-control", name = "Post", placeholder = "Designation" })
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Country", "Country: ", new { Class = "col-md-3 control-label" })
+                                    
+                                    <div class="col-md-9">
+                                        @Html.TextBox("Country", "", new { id= "country" ,  Class = "form-control", name = "Country", placeholder = "Country" })
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("City", "City: ", new { Class = "col-md-3 control-label" })
+                                    
+                                    <div class="col-md-9">
+                                        @Html.TextBox("City", "", new { id = "city" , Class = "form-control", name = "City", placeholder = "City" })
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Industry", "Industry: ", new { Class = "col-md-3 control-label" })
+                                    
+                                    <div class="col-md-9">
+                                        @Html.TextBox("Indsutry", "", new {id= "industry", Class = "form-control", name = "Indsutry", placeholder = "Industry" })
+                                        
+                                    </div>
+                                </div>
+                              
+                                <div class="form-group">
+                                    @Html.Label("Phone", "Phone: ", new { Class = "col-md-3 control-label" })
+                                    
+                                    <div class="col-md-9">
+                                        @Html.TextBox("Phone", "", new { id= "phone" , Class = "form-control", name = "Phone", placeholder = "Phone" })
+                                        
+                                    </div>
+                                </div>
+                              
+                                <div class="form-group">
+                                    @Html.Label("Website", "Website: ", new { Class = "col-md-3 control-label" })
+                                    
+                                    <div class="col-md-9">
+                                        @Html.TextBox("Website", "", new {id = "website" ,Class = "form-control", name = "Website", placeholder = "Website" })
+                                        
+                                    </div>
+                                </div>
+                              
+                                <div class="form-group">
+                                    @Html.Label("Establish", "Established In: ", new { Class = "col-md-3 control-label" })
+                                    
+                                    <div class="col-md-9">
+                                        @Html.TextBox("Establish", "", new { id = "establish" , type = "date" , Class = "form-control", name = "Establish", placeholder = "Establish" })
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- Button -->
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <input id="buttonclick" type="submit" onclick="validate()" class="btn btn-lg btn-primary pull-right" value="SignUp">
+                                    </div>
+                                </div>
+                          } 
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <div class="col-sm-3" style="margin-right:150px ; color:black">
+                <h3 style="font:bolder; color:black">Why Join Career Monster?</h3>
+                <ul>
+                    <li>Apply to millions of available jobs</li>
+                    <li>Post a resume to start getting found by employers</li>
+                    <li>Get personalized recommendations on the best job opportunities for you</li>
+                </ul>
+            </div>
+        </div>
+
+    }
+</div>
+

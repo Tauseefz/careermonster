@@ -1,0 +1,35 @@
+﻿@using Template.Models;
+@model System.Collections.ArrayList
+@foreach (Job job in Model)
+{
+    <ul class="list-unstyled list-boxed list-bottom list-hover">
+        <li>
+            <a href="~/Jobs/JobDetails/@job.Id" class=" text-lg" title="JobName">
+                @job.JobName
+                <span class="text-muted text-sm">@job.CompanyName</span>
+            </a>
+            <div class="mt10 mb10">
+                <a style="color:inherit" href="#" title="fulltime">
+                    <span class="label label-default text-sm">@job.Job_Type</span>
+                </a>
+
+            </div>
+            <div class="mt5 mb10">
+                @job.Description
+            </div>
+            <div class="row text-sm">
+                <div class="col-md-9 col-sm-9 col-xs-12 text-success">
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                    <a style="color:inherit" href="/Jobs/Jobs" title="location">@job.Location</a>
+                    <a style="color:inherit" href="#">
+                        Pakistan
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    @job.Date_Posted
+                </div>
+            </div>
+        </li>
+    </ul>
+}
+            </ul>

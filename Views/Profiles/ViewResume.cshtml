@@ -1,0 +1,129 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@using Template.Models;
+@model Template.Models.CVList
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewResume</title>
+    <link href="~/bootstrap/css/print.css" rel="stylesheet" />
+    <link href="~/bootstrap/css/red.css" rel="stylesheet" />
+    <script src="~/bootstrap/js/jquery-1.4.2.min.js"></script>
+    <script src="~/bootstrap/js/jquery.tipsy.js"></script>
+    <script src="~/bootstrap/js/cufon.yui.js"></script>
+    <script src="~/bootstrap/js/scrollTo.js"></script>
+    <script src="~/bootstrap/js/myriad.js"></script>
+    <script src="~/bootstrap/js/jquery.colorbox.js"></script>
+    <script src="~/bootstrap/js/custom.js"></script>
+    <script type="text/javascript">
+        Cufon.replace('h1,h2');
+    </script>
+</head>
+<body>
+  
+    <div id="wrapper">
+        <div class="wrapper-top"></div>
+        <div class="wrapper-mid">
+          
+            <div id="paper">
+                <div class="paper-top"></div>
+                <div id="paper-mid">
+                    <div class="entry">
+                       
+                        <img class="portrait" src="~/Content/Resume/@Model.person.ProfilePic"  />
+                       
+                        <div class="self">
+                            <h1 class="name">
+                                @Model.person.FName @Model.person.LName <br />
+                                <span>@Model.person.CareerLevel</span>
+                            </h1>
+                            <ul>
+                                <li class="ad">@Model.person.Address</li>
+                                <li class="mail">@Model.person.Email</li>
+                                <li class="tel">@Model.person.Mobile</li>
+                                
+                            </ul>
+                        </div>
+                       
+                    
+                      <a href="AddResume" >Donwload</a>
+                        <a href="CreateCV">Go Back</a>
+
+                    </div>
+                 
+                    <div class="entry">
+                        <h2>OBJECTIVE</h2>
+                        <p>@Model.person.About</p>
+                    </div>
+                   
+                    <div class="entry">
+                        <h2>EDUCATION</h2>
+                        <div class="content">
+                            @foreach(Academic academic in Model.academics)
+                            { 
+                            <h3>@academic.Start_Date - @academic.Completion_date</h3>
+                            <p>
+                                @academic.Institution <br />
+                                <em>@academic.DegreeLevel</em>
+                                <em>@academic.DegreeTitle</em>
+                                <em>@academic.Grade</em>
+                            </p>
+                            }
+                        </div>
+             
+                    </div>
+                   
+                    <div class="entry">
+                        <h2>EXPERIENCE</h2>
+                        <div class="content">
+                            @foreach(Exprience ex in Model.expe)
+                            { 
+                            <h3>@ex.Start_Date - @ex.Finish_Date</h3>
+                            <p>
+                                @ex.JobTitle <br />
+                                <em>@ex.Organization</em>
+                            </p>
+                           }
+                        </div>
+                        
+                    </div>
+                  
+                    <div class="entry">
+                        <h2>SKILLS</h2>
+                        <div class="content">
+                            
+                            <ul class="skills">
+                                @foreach(Skill skill in Model.skills)
+                                {     
+                                <li>@skill.Title</li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="content">
+                            <h3>Languages</h3>
+                            <ul class="skills">
+                                @foreach(Language lan in Model.langus)
+                                { 
+                                <li>@lan.Name</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="clear"></div>
+                <div class="paper-bottom"></div>
+            </div>
+          
+        </div>
+        <div class="wrapper-bottom"></div>
+    </div>
+    <div id="message"><a href="#top" id="top-link">Go to Top</a></div>
+
+</body>
+</html>
+

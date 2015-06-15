@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "Jobs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model System.Collections.ArrayList
+           @using Template.Models;
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.4-dist/js/npm.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+<html>
+<body style="background-color:oldlace">
+   
+       @section featured
+       {
+
+    <div style="margin-left:150px; margin-right:150px">
+    <div id="mcWorkArea" class="cs375R960D">
+        
+        <div class="floatLeft slpHeadBoard slpJSLPHeadSplash">
+            <div class="headBoard">
+
+                <img src="~/Content/themes/base/images/wwwHeadboardJobsearch.jpg" />
+            <div class="homeHeader slpHeadBoard slpJSLPHeadSplash" id="homeHeader">  
+            <div class="content">
+                <Center class="fnt23">Browse and the jobs that's for
+                    you.</Center>
+                <h2 class="fnt11"></h2>
+                <div class="links fnt11">
+                    <a href="#">Browse By Location </a>
+                    <br>
+                    <a href="#"> Browse By Company </a>
+                    </div>
+                </div>   
+            </div>    
+          </div>    
+        </div>  
+        
+          
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-3 panel panel-success ">
+            
+            <h3 class="panel-heading panel-title">My Saved Jobs</h3> 
+                <p style="font-family:Cambria">
+                    apply right now?
+                    Save the jobs you like to your Saved Jobs list.
+                    You can access the list and apply for
+                    a job at your convenience.
+                    <br>
+                    <a href="@Url.Content("~/Accounts/SignUp")" style="color:purple; font:bolder; font:italic">create an Account Now</a>
+                    <br>
+                    <br>
+                    <img src="~/Content/themes/base/images/widget_divider.gif" />
+                    <br>
+                <p style="font:bolder; color:black">
+                    Already a member?
+                    <br>
+                    <a href="@Url.Content("~/Accounts/Login")" style="color:purple; font:bolder; font:italic">Sign in </a>Now to View Your Jobs
+                </p>
+            </div>
+
+
+            <div class="col-xs-6 col-sm-3 panel panel-success ">
+                <h3 class="panel-heading panel-title">Browse Jobs</h3>
+                We've added a whole new way to find jobs.
+                <br>
+                Try our new Browse Jobs feature. <br>
+                Simply narrow down the results
+                until you find a list of jobs that are right for you.
+                <br>
+                <br>
+                <a href="~/Jobs/ViewAllJobs" style="color:purple; font:bolder">Browse Jobs Now</a>
+            </div>
+
+
+
+            <!-- Add the extra clearfix for only the required viewport -->
+            <div class="clearfix visible-xs-block "></div>
+
+            <div class="col-xs-6 col-sm-3 panel panel-success">
+                <h3 class="panel-heading panel-title">My Saved Searches</h3>
+                There's no need to repeat your Job Searches each time you log in. You can do the 
+                Job Search once and save your search terms. You can even choose how often you want to receive email alerts about matching jobs.
+               
+          
+        </div>
+    </div>
+        <div class="container" >
+            <div class="col-xs-6 col-sm-8 panel panel-success ">
+
+                <h3 class="panel-heading panel-title">Latest Jobs</h3>
+                <p style="font-family:Cambria">
+                    apply right now?
+                    Save the jobs you like to your Saved Jobs list.
+                    You can access the list and apply for
+                    a job at your convenience.
+                    <div class="panel-footer">
+                        @foreach (Job job in Model)
+                        {
+                            <ul class="list-unstyled list-boxed list-bottom list-hover">
+                                <li>
+                                    <a href="~/Jobs/JobDetails/@job.Id" name="@job.JobName" class="text-lg" title="JobName">
+                                        @job.JobName
+                                    </a>
+                                        <span class="text-muted text-sm">@job.CompanyName</span>
+                                   
+                                    <div class="mt10 mb10">
+                                       
+                                            <span class="label label-default text-sm">@job.Job_Type</span>
+                                        
+
+                                    </div>
+                                    <div class="mt5 mb10">
+                                        @job.Description
+                                    </div>
+                                    <div class="row text-sm">
+                                        <div class="col-md-9 col-sm-9 col-xs-12 text-success">
+                                            <span class="glyphicon glyphicon-map-marker"></span>
+                                            <a style="color:inherit" href="/Jobs/Jobs" title="location">@job.Location</a>
+                                            <a style="color:inherit" href="#">
+                                                Pakistan
+                                            </a>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-3">
+                                            @job.Date_Posted
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        }
+                        <a href="@Url.Content("~/Jobs/ViewJobs")" style="align-content:flex-end">View All Jobs</a>
+                        </div>
+            </div>
+        </div>
+        </div>
+</div>
+           }
+</body>
+</html>

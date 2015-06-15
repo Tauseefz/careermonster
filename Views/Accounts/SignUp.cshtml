@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.4-dist/js/npm.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+<script src="~/jQuery/jQuery-2.1.4.min.js"></script>
+<div style="background-color:oldlace">
+    @section featured {
+    <div  class ="col-sm-10"style="margin-left:180px; margin-right:170px ; border:outset ; ">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="col-sm-7">
+        <h2  style="font:bolder; color:black">Join Career Monster - It's Free!</h2>
+            <div id="signupbox" >
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign Up of Career Monster With Email</div>
+
+                    </div>
+                    <p style="margin-left:30px">Already have a account <a href="@Url.Content("~/Accounts/Login")">Sign in Here</a></p>
+                    <div class="panel-body">
+                        <form id="signupform" method="post" class="form-horizontal" action="/Accounts/RegisterUser" role="form">
+
+                            <div id="signupalert" style="display:none" class="alert alert-danger">
+                                <p>Error:</p>
+                                <span></span>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="Email" class="col-md-3 control-label">Email</label>
+                                <div class="col-md-9">
+                                    <input id="email" type="email" required class="form-control" name="EMail" placeholder="Email Address">
+                                    <input type="button" id="check" value="Check">
+                                    <div id="result"></div>
+                                    @Scripts.Render("~/bundles/jquery")
+                                    <script>
+
+                                        $(document).ready(function () {
+
+
+
+                                            $('#check').click(function () {
+
+                                                var Email = $('#email').val();
+
+                                                //alert('User Name ='+ userName);
+
+                                                $.getJSON("/Accounts/CheckEmail?Email=" + Email, function (data) {
+
+                                                    if (data) {
+                                                        $('#result').text("User already exists in database");
+
+                                                    }
+                                                    else {
+                                                        $('#result').text("User Name is available");
+                                                    }
+                                                });
+
+                                            });
+
+                                        });
+                                    </script>
+                                </div>
+                               
+                            </div>
+                            <div class="form-group">
+                            <label for="email" class="col-md-3 control-label">Desired Password</label>
+                            <div class="col-md-9">
+                                <input type="password" required class="form-control" name="Password" placeholder="Password">
+                            </div>
+                    </div>
+
+                            <div class="form-group">
+                                <label for="email" class="col-md-3 control-label">Re enter Password</label>
+                                <div class="col-md-9">
+                                    <input type="password" required class="form-control" name="ConfirmPassword" placeholder="Password">
+                                </div>
+                            </div>
+
+                    <div class="form-group">
+                        <label for="firstname" class="col-md-3 control-label">First Name</label>
+                        <div class="col-md-9">
+                            <input type="text" required class="form-control" name="FName" placeholder="First Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" required name="LName" placeholder="Last Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="col-md-3 control-label">Current Career Level</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control"  name="CareerLevel" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="icode" class="col-md-3 control-label">Current Education Level</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" required name="EducationLevel" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Button -->
+                        <div class="col-md-offset-3 col-md-9">
+                            <input type="submit" class="btn btn-lg btn-primary pull-right" value="SignUp">
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                </div>
+
+
+
+
+            </div> 
+        </div>
+        <div class="col-sm-3" style="margin-right:150px ; color:black">
+            <h3 style="font:bolder; color:black">Why Join Career Monster?</h3>
+            <ul>
+                <li >Apply to millions of available jobs</li>
+                <li>Post a resume to start getting found by employers</li>
+                <li>Get personalized recommendations on the best job opportunities for you</li>
+                </ul>
+            </div>
+        </div>
+
+    }
+</div>

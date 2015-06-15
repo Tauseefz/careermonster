@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>@ViewBag.Title</title>
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+
+
+
+@Styles.Render("~/Content/css")
+@Styles.Render("~/bundles/modrenizr")
+<html>
+<body>
+   
+  
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+
+            <a class="navbar-brand" style="margin-top:-12px" href="@Url.Content("~/Home/Index")"><img src="~/Content/themes/base/images/monster-dot-com-logo.png" /></a>
+        </div>
+
+
+        <div class="col-sm-4 col-md-5 text-center " style="margin-left:122px">
+            <form class="navbar-form" role="search" method="post" action="~/Home/JobSearch">
+                <div class="input-group">
+                    <input type="text" name="job" class="form-control" style="border-color:purple" required placeholder="Search for Jobs" name="q">
+
+
+                </div>
+                <input type="text" name="location" class="form-control" style="border-color:purple" required placeholder="Location" name="q">
+
+                <button class="btn btn-default" type="submit" style="background-color:purple"><i class="glyphicon glyphicon-search"></i></button>
+
+
+
+            </form>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            @if (Session["Name"] == null)
+            {
+                <li id="login" class="navbar-text navbar-icon-link ">
+                    <img style="margin-left:15px" src="~/Content/themes/base/images/login_profile_icon.png" />
+                    @Html.ActionLink("Login", "Login", "Accounts")
+                </li>
+            }
+        else
+        { 
+            <li id="login" class="navbar-text navbar-icon-link ">
+                <img style="margin-left:15px" src="~/Content/themes/base/images/login_profile_icon.png" />
+                @Html.ActionLink("Welcome "+(String)Session["Name"], "CreateCV", "Profiles")
+                
+                @Html.ActionLink("Logout", "SignOut", "Accounts")
+
+            </li>
+        }
+                @if (Session["Name"] == null)
+                  {
+
+            <li style="margin-right:50px" class="navbar-text">
+                <div id="login-btn-employer" class="navbar-text">
+                    <a href="/Employer/Employer">
+                    <h2 style="color:white">Employers</h2>
+                   Post Jobs & Find Talent
+
+                        </a>
+                </div>
+            </li>
+                }
+        </ul>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+        <div class="col-sm-12" style="margin-left:30px; margin-top:-40px">
+
+            <button class="btn" style="background-color:ActiveCaption ; color:moccasin;  width:100px">@Html.ActionLink("Resume", "Resume", "Resume")</button>
+            <button class="btn" style="background-color: ActiveCaption; color:moccasin; width: 100px">@Html.ActionLink("Jobs", "Jobs", "Jobs")</button>
+
+
+        </div>
+    </nav>
+    
+    @RenderSection("featured", required: false)
+    @RenderBody()
+  
+    <footer class="text-center footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <img src="~/Content/themes/base/images/niche-footer-m.gif" />
+                </div>
+            </div>
+            <div class="row" style="padding-top:30px">
+                <div class="col-xs-12">
+                    <span href="#">For Employers:  </span>
+                    <a title="Post Jobs" href="#">Post Jobs</a>
+                    <span class="spacer-pipe hidden-xs">|</span>
+                    <br class="visible-xs">
+                    <a title="Search Resume" href="#">Search Resume</a>
+                </div>
+            </div>
+            <div class="row" style="padding-top:30px">
+                <div class="col-xs-12">
+
+                    <a title="Post Jobs" href="@Url.Content("~/Home/About")">About Us</a>
+                    <span class="spacer-pipe hidden-xs">|</span>
+                    <br class="visible-xs">
+                    <a title="Search Resume" href="#">Work with Us</a>
+                    <span class="spacer-pipe hidden-xs">|</span>
+                    <br class="visible-xs">
+                    <a title="Search Resume" href="#">Help</a>
+                    <span class="spacer-pipe hidden-xs">|</span>
+                    <br class="visible-xs">
+                    <a title="Search Resume" href="/Home/ContactUs">ContactUs</a>
+                </div>
+            </div>
+            <div class="row" style="padding-top:30px">
+                <div class="col-xs-12">
+                    <p class="copy">Copyright &copy; 2015</p>
+
+                    <span class="spacer-pipe hidden-xs">|</span>
+
+                    <a title="Search Resume" href="#">Social Media</a>
+                </div>
+            </div>
+        </div>
+
+    </footer>  
+   
+</body>
+</html>
+    @Scripts.Render("~/bundles/jquery")
+  
+

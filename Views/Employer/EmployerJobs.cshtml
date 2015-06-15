@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "EmployerJobs";
+    Layout = "~/Views/Shared/EmployerShared.cshtml";
+}
+@using Template.Models;
+@using System.Collections;
+@model ArrayList
+ 
+<script src="~/datatables/jquery.dataTables.js"></script>
+<div class="col-xs-12 col-sm-12 panel panel-success ">
+
+    <h3 style="margin-left:120px" class="panel-heading panel-title">Job Posted By You</h3>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+
+                    </div>
+                    <div style="margin-left:160px" class="box-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                   
+                                    <th>Name</th>
+                                    <th>JobType</th>
+                                    <th>Posted On</th>
+                                    <th>Location</th>
+                                    <th>Action</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(Job job in Model)
+                                { 
+                                <tr>
+                                    
+                                    <td>@job.JobName</td>
+                                    <td>@job.Job_Type</td>
+                                    <td>@job.Date_Posted</td>
+                                    <td>@job.Location</td>
+                                    
+                                    <td>@Html.ActionLink("Edit", "EditJob", new { id = job.Id })</td>
+                                     <td>  @Html.ActionLink("Delete", "DeleteJob", new { id = job.Id })
+                                    </td>
+                                </tr>
+                                }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    </div>

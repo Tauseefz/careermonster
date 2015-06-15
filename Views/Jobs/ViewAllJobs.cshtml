@@ -1,0 +1,199 @@
+﻿@{
+    ViewBag.Title = "ViewAllJobs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   // Layout = null;
+}
+@using Template.Models;
+@model System.Collections.ArrayList
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.4-dist/js/npm.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+<script src="~/jQuery/jQuery-2.1.4.min.js"></script>
+@*<script>
+    function GetJobDetail(caller) {
+        var job = $(caller).text();
+        $.ajax({
+            url: '/Jobs/JObsspecs',
+            contentType: 'application/html; charset=utf-8',
+            data: { id: job },
+            type: 'GET',
+            dataType: 'html'
+        })
+        .success(function (result) {
+            $("#alljobs").html(result);
+        })
+        .error(function (xhr, status) {
+            alert(status);
+        })
+    }
+</script>*@
+
+
+<div class="container">
+    <div class="col-sm-3 panel panel-success">
+        <h3 class="panel-heading panel-title">  Search Jobs By</h3>
+        <select id="Search" onchange="select()">
+
+            <option value="0">Select</option>
+            <option value="Less Than a Year">Less Than a Year</option>
+            <option value="1 Year">1 Year</option>
+            <option value="2 year">2 year</option>
+
+        </select>
+        
+      
+        <h2 class="text-sm" style="font-family:'Angsana New';font-size:30px">Skills</h2>
+        <select id="Search2" onchange="select2()">
+
+            <option value="0">Select</option>
+            <option value="C#">C#</option>
+            <option value="Java">Java</option>
+            <option value="ContentWriting">Content Writing</option>
+
+        </select>
+        <h2 class="text-sm" style="font-family:'Angsana New';font-size:30px">Salary</h2>
+        <select id="Search1" onchange="select1()">
+
+            <option value="0">Select</option>
+            <option value="15000">10000-15000</option>
+            <option value="20000">15000-20000</option>
+            <option value="25000">20000-25000</option>
+
+        </select>
+    </div>
+    
+        <div id="alljobs" class="col-xs-6 col-sm-8 panel panel-success ">
+
+            <h3 class="panel-heading panel-title">Latest Jobs</h3>
+            <ul style="font-family:Cambria">
+                apply right now?
+                Save the jobs you like to your Saved Jobs list.
+                You can access the list and apply for
+                a job at your convenience.
+                @foreach (Job job in Model)
+                {
+                    <ul class="list-unstyled list-boxed list-bottom list-hover">
+                        <li>
+                            <a href="~/Jobs/JobDetails/@job.Id" class=" text-lg" title="JobName">
+                                @job.JobName
+                                <span class="text-muted text-sm">@job.CompanyName</span>
+                            </a>
+                            <div class="mt10 mb10">
+                                <a style="color:inherit" href="#" title="fulltime">
+                                    <span class="label label-default text-sm">@job.Job_Type</span>
+                                </a>
+
+                            </div>
+                            <div class="mt5 mb10">
+                                @job.Description
+                            </div>
+                            <div class="row text-sm">
+                                <div class="col-md-9 col-sm-9 col-xs-12 text-success">
+                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                    <a style="color:inherit" href="/Jobs/Jobs" title="location">@job.Location</a>
+                                    <a style="color:inherit" href="#">
+                                        Pakistan
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    @job.Date_Posted
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                }
+            </ul>
+        </div>
+    </div>
+    
+
+    
+    @*<div id="all"  class="col-xs-6 col-sm-8 panel panel-success "></div>
+    sfdlkfsdakhfssfsdfsdfkjdfs;khsfd;
+   
+    </body>*@
+
+
+<script>
+
+    function select() {
+
+        var value = $('#Search').val();
+
+        //alert(value);
+
+        //$('#all').load('/Jobs/JObsspecs?jobspecs=' + value);
+
+        //$('#all').load('/Jobs/JObsspecs?jobspecs=' + value);
+        $.ajax({
+            url: '/Jobs/JObsspecs',
+            contentType: 'application/html; charset=utf-8',
+            data: { jobspecs: value },
+            type: 'GET',
+            dataType: 'html'
+        })
+           .success(function (result) {
+               $("#alljobs").html(result);
+           })
+           .error(function (xhr, status) {
+               alert(status);
+           })
+
+
+    }
+    function select2() {
+
+        var value = $('#Search2').val();
+
+        //alert(value);
+
+        //$('#all').load('/Jobs/JObsspecs?jobspecs=' + value);
+
+        //$('#all').load('/Jobs/JObsspecs?jobspecs=' + value);
+        $.ajax({
+            url: '/Jobs/JObsspecs',
+            contentType: 'application/html; charset=utf-8',
+            data: { jobspecs: value },
+            type: 'GET',
+            dataType: 'html'
+        })
+           .success(function (result) {
+               $("#alljobs").html(result);
+           })
+           .error(function (xhr, status) {
+               alert(status);
+           })
+
+
+    }
+    function select1() {
+
+        var value = $('#Search1').val();
+
+        //alert(value);
+
+        //$('#all').load('/Jobs/JObsspecs?jobspecs=' + value);
+
+        //$('#all').load('/Jobs/JObsspecs?jobspecs=' + value);
+        $.ajax({
+            url: '/Jobs/JObsspecssal',
+            contentType: 'application/html; charset=utf-8',
+            data: { jobspecs: value },
+            type: 'GET',
+            dataType: 'html'
+        })
+           .success(function (result) {
+               $("#alljobs").html(result);
+           })
+           .error(function (xhr, status) {
+               alert(status);
+           })
+
+
+    }
+
+</script>

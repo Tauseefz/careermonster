@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "EmployerShared";
+}
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.4-dist/js/npm.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+@Styles.Render("~/Content/css")
+@Styles.Render("~/bundles/modrenizr")
+<html>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            @if(Session["OName"] == null)
+            { 
+            <a class="navbar-brand" style="margin-top:-12px" href="/Home/Index"><img src="~/Content/themes/base/images/monster-dot-com-logo.png" /></a>
+            }
+            else
+            { 
+            <a class="navbar-brand" style="margin-top:-12px" href="/Employer/Employer"><img src="~/Content/themes/base/images/monster-dot-com-logo.png" /></a>
+            }
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav hidden-sm">
+                <li>
+                    <a href="/Home/Index">Home</a>
+                </li>
+             @if (Session["OName"] == null)
+                {
+                <li>
+                    <a href="~/Jobs/Jobs">Jobs</a>
+                </li>
+               
+                <li>
+                    <a href="~/Accounts/Login">Post Jobs</a>
+                </li>
+                <li>
+                    <a href="~/Accounts/Login">Search Resume</a>
+                </li>
+                }
+                else
+                {
+                 <li>
+                    <a href="~/Employer/EmployerJobs">Jobs</a>
+                </li>
+                      <li>
+                    <a href="~/Employer/PostJobs">Post Jobs</a>
+                     </li>
+                     <li>
+                    <a href="~/Employer/SearchCV">Search Resume</a>
+                     </li>
+                }
+                <li>
+
+                    <a href="/Home/ContactUs">Contact</a>
+                </li>
+             
+                <li style="margin-left:400px; margin-top:10px">
+                        @if (Session["OName"] == null)
+                            {
+                    <a id="login" href="/Accounts/Login" class="navbar-text navbar-icon-link ">
+                        <span class="center-block navbar-profile-icon" style="margin-top:-30px ; margin-right:20px">
+                            <img src="~/Content/themes/base/images/login_profile_icon.png" />
+                            Log In
+                        </span>
+                    </a>
+                        }
+                        else
+                        {
+                             <a id="login" href="/Accounts/SignOutOrganization" class="navbar-text navbar-icon-link ">
+                        <span class="center-block navbar-profile-icon" style="margin-top:-30px ; margin-right:20px">
+                            <img src="~/Content/themes/base/images/login_profile_icon.png" />
+                            LogOut
+                        </span>
+                    </a>
+                        }
+                </li>
+                
+            </ul>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+    </nav>
+    @RenderSection("Employer", required: false)
+    @RenderBody()
+    <footer class="text-center footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <img src="~/Content/themes/base/images/niche-footer-m.gif" />
+                </div>
+            </div>
+            <div class="row" style="padding-top:30px">
+                <div class="col-xs-12">
+                    <span href="#">For Employers:  </span>
+                    <a title="Post Jobs" href="#">Post Jobs</a>
+                    <span class="spacer-pipe hidden-xs">|</span>
+                    <br class="visible-xs">
+                    <a title="Search Resume" href="#">Search Resume</a>
+                </div>
+            </div>
+            <div class="row" style="padding-top:30px">
+                <div class="col-xs-12">
+
+                    <a title="Post Jobs" href="@Url.Content("~/Home/About")">About Us</a>
+                    <span class="spacer-pipe hidden-xs">|</span>
+                    <br class="visible-xs">
+                    <a title="Search Resume" href="#">Work with Us</a>
+                    <span class="spacer-pipe hidden-xs">|</span>
+                    <br class="visible-xs">
+                    <a title="Search Resume" href="#">Help</a>
+                    <span class="spacer-pipe hidden-xs">|</span>
+                    <br class="visible-xs">
+                    <a title="Search Resume" href="/Home/ContactUs">ContactUs</a>
+                </div>
+            </div>
+            <div class="row" style="padding-top:30px">
+                <div class="col-xs-12">
+                    <p class="copy">Copyright &copy; 2015</p>
+
+                    <span class="spacer-pipe hidden-xs">|</span>
+
+                    <a title="Search Resume" href="#">Social Media</a>
+                </div>
+            </div>
+        </div>
+
+    </footer>  
+
+</body>
+
+
+    
+</html>

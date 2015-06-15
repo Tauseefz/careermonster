@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "UserDetail";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using Template.Models;
+@model System.Collections.ArrayList
+<link href="~/datatables/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/datatables/dataTables.bootstrap.min.js"></script>
+<link href="~/datatables/dataTables.bootstrap.css" rel="stylesheet" />
+<script src="~/jQuery/jQuery-2.1.4.min.js"></script>
+<script>
+    function GetUserDetail(caller) {
+        var user = $(caller).val();
+        $.ajax({
+            url: '/Admin/DetailsUser',
+            contentType: 'application/html; charset=utf-8',
+            data: {id: user}, 
+            type: 'GET',
+            dataType: 'html'
+        })
+        .success(function (result) {
+            $("#fuckoff").html(result);
+        })
+        .error(function (xhr, status) {
+            alert(status);
+        })
+    }
+</script>
+<html>
+<body>
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Users
+
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">Admin</a></li>
+
+                <li class="active">Organization tables</li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <div class="panel panel-primary">
+                                <div id="fuckoff" class="panel-body">
+
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="box-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Industry</th>
+                                        <th>Email</th>
+
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach(User user in Model)
+                                    { 
+                                    <tr>
+                                        <td>@user.Id</td>
+                                        <td>@user.FName</td>
+                                        <td>@user.EMail</td>
+                                        <td>@user.EducationLevel</td>
+                                       
+                                        <td>
+                                          <input type="submit" placeholder="Detail" value="@user.Id"  onclick="GetUserDetail($(this))" >
+                                            /
+                                            @Html.ActionLink("Delete", "DeleteUser", new { id = user.Id })
+                                        </td>
+                                    </tr>
+                                    }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

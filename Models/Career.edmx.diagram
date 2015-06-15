@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="47335e3a922f4918b86e6500285cb334" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="MonsterModel.Academic" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MonsterModel.Achievement" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MonsterModel.Exprience" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="MonsterModel.Job" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MonsterModel.Language" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MonsterModel.Organization" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MonsterModel.Project" Width="1.5" PointX="3" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MonsterModel.SavedJob" Width="1.5" PointX="6" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="MonsterModel.Skill" Width="1.5" PointX="3" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MonsterModel.User" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <AssociationConnector Association="MonsterModel.FK_Academics_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="MonsterModel.FK_Achievement_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="MonsterModel.FK_Experience_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="MonsterModel.FK_Saved_Jobs1" ManuallyRouted="false" />
+        <AssociationConnector Association="MonsterModel.FK_Language_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="MonsterModel.FK_Projects_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="MonsterModel.FK_Saved_Jobs" ManuallyRouted="false" />
+        <AssociationConnector Association="MonsterModel.FK_Skills_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="MonsterModel.FK_Jobs_Organization" />
+        <EntityTypeShape EntityType="MonsterModel.PersonalInformation" Width="1.5" PointX="3" PointY="31.75" />
+        <AssociationConnector Association="MonsterModel.FK_PersonalInformation_Users" />
+        <EntityTypeShape EntityType="MonsterModel.Resume" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MonsterModel.Table" Width="1.5" PointX="5.75" PointY="6.75" />
+        <AssociationConnector Association="MonsterModel.FK_Resume_User" />
+        <EntityTypeShape EntityType="MonsterModel.SavedResume" Width="1.5" PointX="8" PointY="2.875" />
+        <AssociationConnector Association="MonsterModel.FK_SavedResume_Organization" />
+        <EntityTypeShape EntityType="MonsterModel.ReceivedResume" Width="1.5" PointX="8" PointY="9.125" />
+        <AssociationConnector Association="MonsterModel.FK_ReceivedResume_Organization" />
+        <AssociationConnector Association="MonsterModel.FK_ReceivedResume_User" />
+        <EntityTypeShape EntityType="MonsterModel.Inbox" Width="1.5" PointX="11" PointY="9.125" />
+        <AssociationConnector Association="MonsterModel.FK_Inbox_Organization" />
+        <AssociationConnector Association="MonsterModel.FK_Inbox_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

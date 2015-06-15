@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Template.Models.User
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.4-dist/js/npm.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+<html>
+<body style="background-color:white" >
+    @section featured
+    {
+
+    <div class="container" >
+        <div class="carousel slide"  id="bgimg">
+            <ol class="carousel-indicators">
+                <li data-target="#bgimg" data-slide-to="0" class="active"></li>    
+                <li data-target="#bgimg" data-slide-to="1" ></li>
+                <li data-target="#bgimg" data-slide-to="2" ></li>
+            </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="~/Content/themes/base/images/bg-map.jpg" />
+             <div class="container">
+                 <div class="carousel-caption">
+
+                     <div class="geoPagesWrapper">
+                     <h1 style="font-family:Bauhaus 93">Aim Higher. Reach Farther. Dream Bigger</h1>
+                     <h2  style="font-family:Rockwell">
+                         A better career is out there. We'll help you find it. We're your first step to becoming everything you want to be</h2>
+                 </div>
+                     </div>
+            </div>
+            
+      
+        </div> 
+        </div>    
+    </div>  
+       
+    </div>
+  }
+    </body>
+
+</html>

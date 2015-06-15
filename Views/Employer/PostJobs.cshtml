@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "PostJobs";
+    Layout = "~/Views/Shared/EmployerShared.cshtml";
+}
+@model Template.Models.Job
+<html>
+<body>
+    <div style="margin-left:200px"class="col-md-8" >
+        <div class="box">
+            <div class="resume-section-head">
+                <h2 style="display:inline; cursor:pointer">
+                   
+                    Post Jobs
+                </h2>
+            </div>
+            <div class="results" id="result-presonal">
+                <div class="box-grey">
+                    <form action="/Employer/PostJob" method="post" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="job">Job Name</label>
+                            <div class="col-md-9 form-inline">
+                                <input class="form-control input-sm xlg" name="JobName" required placeholder="Job Name">
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="orgnization">Organization</label>
+                            <div class="col-md-9 form-inline">
+                                <input class="form-control input-sm xlg" name="CompanyName"  required value="@((string)Session["OName"])">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="description">Description</label>
+                            <div class="col-md-9 form-inline">
+                                <textarea name="Description" required class="form-control input-sm xlg" placeholder="Description"></textarea>
+                            </div>
+                 </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="location">Location</label>
+                            <div class="col-md-9 form-inline">
+                                <input class="form-control input-sm xlg" name="Location" placeholder="Location">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="requirements">Requirements</label>
+                            <div class="col-md-9 form-inline">
+                                <textarea class="form-control input-sm xlg" name="Requirements" placeholder="Requirements"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="posted">Date Posted</label>
+                            <div class="col-md-9 form-inline">
+                                <input type="date" name="Date_Posted" required class="form-control input-sm xlg" placeholder="Date Posted">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="expired">Date Expired</label>
+                            <div class="col-md-9 form-inline">
+                                <input type="date" name="Date_Expired" required class="form-control input-sm xlg" placeholder="Date Expired">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="expired">Qualification</label>
+                            <div class="col-md-9 form-inline">
+                                <input type="text" name="Qualification" required class="form-control input-sm xlg" placeholder="Date Expired">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="expired">MaxSalary</label>
+                            <div class="col-md-9 form-inline">
+                                <input type="number" name="MaxSalary" required class="form-control input-sm xlg" placeholder="Date Expired">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="expired">Min Salary</label>
+                            <div class="col-md-9 form-inline">
+                                <input type="number" name="MinSalary" required class="form-control input-sm xlg" placeholder="Date Expired">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="expired">Experience</label>
+                            <div class="col-md-9 form-inline">
+                                <input type="text" name="Experience" required class="form-control input-sm xlg" placeholder="Date Expired">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="expired">Vacancies</label>
+                            <div class="col-md-9 form-inline">
+                                <input type="number" name="Vacancy" required class="form-control input-sm xlg" placeholder="Date Expired">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="expired">Job Type</label>
+                            <div class="col-sm-9 form-inline">
+                                <select required class="form-control" name="Job_Type">
+                                    <option>FullTime</option>
+                                    <option>PartTime</option>
+                                    </select>
+                            </div>
+                            </div>
+                            <div class="col-md-offset-3 col-md-9">
+                                <input type="submit" class="btn btn-primary" value="Post">
+                                <a href="#" class="btn btn-default form-close">Cancel</a>
+                            </div>
+</form>
+
+                </div>
+            </div>
+        </div>
+
+    </div></body>
+</html>

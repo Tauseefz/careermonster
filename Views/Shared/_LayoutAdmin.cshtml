@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "_LayoutAdmin";
+}
+
+<meta charset="UTF-8">
+<title>CareerMonster | Admin</title>
+<script src="~/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/bootstrap/js/bootstrap.js"></script>
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/fastclick/fastclick.min.js"></script>
+<script src="~/fastclick/fastclick.js"></script>
+<link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="~/slimScroll/jquery.slimscroll.js"></script>
+<script src="~/slimScroll/jquery.slimscroll.min.js"></script>
+<link href="~/dist/css/AdminLTE.min.css" rel="stylesheet" />
+<link href="~/dist/css/AdminLTE.css" rel="stylesheet" />
+<link href="~/dist/css/skins/_all-skins.css" rel="stylesheet" />
+<script src="~/dist/js/app.min.js"></script>
+<script src="~/dist/js/app.js"></script>
+<script src="~/dist/js/demo.js"></script>
+
+@Styles.Render("~/Content/css")
+@Styles.Render("~/bundles/modrenizr")
+<html>
+<body>
+    <header style="background-color: #605ca8" class="main-header">
+      
+        <a href="@Url.Content("~/Home/Index")" class="logo">
+            <img src="~/Content/themes/base/images/niche-footer-m.gif" />
+        </a>
+        <a href="@Url.Content("~/Admin/Index")">
+         
+          
+            <span class="logo-lg">Admin</span>
+        </a>
+      
+        <nav class="navbar navbar-static-top" role="navigation">
+         
+         
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                            <span class="hidden-xs">Tauseef Anjum</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <!-- Menu Body -->
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <aside style="background-color:black" class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                </div>
+                <div class="pull-left info">
+                    <p>Tauseef Anjum</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+            <!-- search form -->
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search..." />
+                    <span class="input-group-btn">
+                        <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="header">MAIN NAVIGATION</li>
+                <li class="treeview">
+                    <a href="@Url.Content("~/Admin/EmployerDetail")">
+                        <i class="fa fa-laptop"></i>
+                        <span>Organizations</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                </li>
+
+
+
+                <li class="treeview">
+                    <a href="@Url.Content("~/Admin/UserDetail")">
+                        <i class="fa fa-laptop"></i>
+                        <span>Users</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+
+                </li>
+                <li class="treeview">
+                    <a href="@Url.Content("~/Admin/AllJobs")">
+                        <i class="fa fa-edit"></i> <span>Jobs</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+               
+                </li>
+
+
+
+
+
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+   
+    @RenderBody()
+</body>
+</html>

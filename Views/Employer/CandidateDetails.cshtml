@@ -1,0 +1,38 @@
+﻿@model Template.Models.CandidateDetails
+           @using Template.Models;
+<fieldset>
+    <legend>@Model.Name 's Details</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Expected)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Expected)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Experience)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Experience)
+    </div>
+  
+   </fieldset>
+<p>
+    @Html.ActionLink("Save", "SaveResume", new { name =Model.Name}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

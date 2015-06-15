@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "JobDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Template.Models.Job
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.4-dist/js/npm.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="~/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+@section featured
+{
+<div style="margin-left:100px ; background-color:white" class="col-md-8">
+    <div class="panel panel-danger">
+        <div class="panel-heading panel-danger">
+            Job's Details
+        </div>
+    </div>
+   
+        <h1 style="margin-top:30px" class="mt0 mb10">
+            @Model.JobName
+        </h1>
+        <small class="text-muted mt10" style="display:block">@Model.CompanyName  Pakistan</small>
+        <div class="row">
+
+            <ul style="margin-left:50px" class="list-unstyled ">
+                <li>
+                    <div class="text-muted">Job Type</div>
+                    <span> @Model.Job_Type</span>
+
+                </li>
+                <li>
+                    <div class="text-muted">Salary</div>
+                    <span>@Model.MinSalary  - @Model.MaxSalary</span>
+                </li>
+                <li>
+                    <div class="text-muted">Experience</div>
+                    <span>@Model.Experience</span>
+                </li>
+            </ul>
+            <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover">
+                    <colgroup>
+                        <col width="20%">
+                        <col width="30%">
+                        <col width="20%">
+                        <col width="30%">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td class="text-bold">Vacancies</td>
+                            <td>5</td>
+                            <td class="text-bold">Qualification Required</td>
+                            <td>lajf</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold">Posted On</td>
+                            <td>@Model.Date_Posted</td>
+                            <td class="text-bold">Last Date</td>
+                            <td>@Model.Date_Expired</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <h2 class="text-muted">Description</h2>
+            @Model.Description
+            <div class="pull-right col-md-4">
+                @if(Session["Name"] != null)
+                { 
+                <a class="globalButton gbOrangeButton btn-danger" href="~/Jobs/SaveJob/@Model.Id">Save Job</a>
+                     <a class="globalButton gbOrangeButton btn-danger" href="~/Profiles/Apply/@Model.Id">Apply Now</a>
+                }
+            </div>
+   
+    </div>
+</div>
+    
+    }
+
+ 

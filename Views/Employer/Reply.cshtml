@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Reply";
+    Layout = "~/Views/Shared/EmployerShared.cshtml";
+}
+@model Template.Models.Inbox
+<div id="academics" class=" col-sm-6 box" style="margin-left:100px">
+    <form action="SendResponse" method="post">
+        Reciever Name<br>
+        <input type="text"  value="@Model.ResName" name="ResName"><br>
+        Subject<br>
+        <input type="text" name="Subject"><br>
+        Your e-mail<br>
+        <input type="text"  value="@Model.Email" name="Email"><br>
+        Message<br>
+        <textarea name="Message"> </textarea>
+        <br>
+        <input type="submit" value="Send">
+        <input type="reset" value="Clear">
+
+    </form>
+</div>
